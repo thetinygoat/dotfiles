@@ -3,23 +3,6 @@
 When analyzing large codebases or multiple files that might exceed context limits, use the Gemini CLI with its massive
 context window. Use `gemini -p` to leverage Google Gemini's large context capacity.
 
-## How to determine the size of your codebasebase?
-
-To determine the size of the codebase you can use cloc (Count Lines of Code) tool. It provides a detailed breakdown of the number of files, lines of code, and other statistics.
-
-Assume that it is installed, you can run the following command in your terminal:
-
-```bash
-cloc .
-```
-
-This command will analyze the current directory (and its subdirectories) and provide a summary of the codebase size, including:
-
-- Number of files
-- Total lines of code
-- Blank lines
-- Comment lines
-
 ## File and Directory Inclusion Syntax
 
 Use the `@` syntax to include files and directories in your Gemini prompts. The paths should be relative to WHERE you run the
