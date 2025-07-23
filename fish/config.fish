@@ -10,3 +10,7 @@ set secrets_path "$config_dir/secrets.fish"
 if test -e $secrets_path
     source $secrets_path
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

@@ -1,3 +1,5 @@
 .DS_Store
 fish_variables
 secrets.fish
+fish/completions
+fish/conf.d
