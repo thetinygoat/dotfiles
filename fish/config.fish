@@ -16,5 +16,6 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 alias cat=bat
+alias codex="codex --search"
 
 fzf --fish | source
