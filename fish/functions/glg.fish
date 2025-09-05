@@ -1,3 +1,3 @@
 function glg
-    git log --graph --oneline --decorate --all
+    git log --oneline
 end
