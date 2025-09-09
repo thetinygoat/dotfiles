@@ -1,6 +1,3 @@
-# Checks which process is using a given port on macOS.
-# Renamed to `port` for convenience.
-# Usage: port 8080
 function port
     set -l port_num $argv[1]
 

@@ -16,8 +16,7 @@ function llmc --description "Combine files with annotations for LLM input"
     set -l output ""
     set -l file_count 0
     set -l processed_files
-    
-    # Process each argument
+
     for arg in $argv
         if test -d $arg
             # It's a directory - process all files in it (non-recursive)
@@ -26,14 +25,14 @@ function llmc --description "Combine files with annotations for LLM input"
                     # Add file header
                     set -a output "=== File: $file ==="
                     set -a output ""
-                    
+
                     # Add file content
                     set -a output (cat $file)
                     set -a output ""
                     set -a output "=== End of $file ==="
                     set -a output ""
                     set -a output ""
-                    
+
                     set file_count (math $file_count + 1)
                     set -a processed_files $file
                 end
@@ -43,14 +42,14 @@ function llmc --description "Combine files with annotations for LLM input"
             # Add file header
             set -a output "=== File: $arg ==="
             set -a output ""
-            
+
             # Add file content
             set -a output (cat $arg)
             set -a output ""
             set -a output "=== End of $arg ==="
             set -a output ""
             set -a output ""
-            
+
             set file_count (math $file_count + 1)
             set -a processed_files $arg
         else
@@ -58,12 +57,12 @@ function llmc --description "Combine files with annotations for LLM input"
             echo "Warning: $arg not found or no matching files" >&2
         end
     end
-    
+
     # Copy to clipboard
     if test $file_count -gt 0
         printf "%s\n" $output | pbcopy
         echo "✓ Copied $file_count file(s) to clipboard"
-        
+
         # List processed files (limit output if too many)
         if test $file_count -le 20
             for file in $processed_files
