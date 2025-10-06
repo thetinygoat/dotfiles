@@ -3,6 +3,7 @@ set -gx EDITOR nano
 set -gx BUN_INSTALL ~/.bun
 set -gx HISTSIZE 10000
 set -gx SAVEHIST 10000
+set -g fish_greeting
 
 # path mutations
 fish_add_path /opt/homebrew/bin
