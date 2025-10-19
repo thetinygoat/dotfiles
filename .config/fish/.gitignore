@@ -1,4 +1,4 @@
-fish_variables
-secrets.fish
-fish/completions
-fish/conf.d
+/*
+!.gitignore
+!functions
+!config.fish
