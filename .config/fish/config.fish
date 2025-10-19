@@ -50,3 +50,6 @@ fish_add_path $HOME/.cargo/bin
 
 # custom scripts
 fish_add_path $HOME/scripts
+
+# fnm setup
+fnm env --use-on-cd --shell fish | source
