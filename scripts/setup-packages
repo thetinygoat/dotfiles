@@ -1,9 +1,8 @@
 #!/bin/sh
 
+/opt/homebrew/bin/brew update
 /opt/homebrew/bin/brew tap thetinygoat/tap
 /opt/homebrew/bin/brew install git nano bat fd ripgrep fish coreutils fzf go just redis uv duckdb fnm htop openjdk tree scc wget 1password-cli thetinygoat/tap/dt
-/opt/homebrew/bin/brew install --cask ghostty codex
+/opt/homebrew/bin/brew install --cask codex
 
 uv tool install ruff
-
-
