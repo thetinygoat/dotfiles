@@ -1,0 +1,5 @@
+#!/bin/sh
+
+git config --global user.name "Sachin Saini"
+git config --global user.email "iamsainisachin@gmail.com"
+git config --global core.editor "nano"
