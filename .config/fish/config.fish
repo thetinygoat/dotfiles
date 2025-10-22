@@ -9,6 +9,7 @@ set -gx EDITOR nano
 set -gx HISTSIZE 10000
 set -gx SAVEHIST 10000
 set -g fish_greeting
+fish_add_path $HOME/.local/bin
 
 # QOL abbreviations
 if type -q bat
