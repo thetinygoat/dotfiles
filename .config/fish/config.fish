@@ -75,3 +75,8 @@ fish_add_path $HOME/scripts
 if type -q fnm
     fnm env --use-on-cd --shell fish | source
 end
+
+# load secrets
+if test -f $HOME/.config/fish/secrets.fish
+    source $HOME/.config/fish/secrets.fish
+end
