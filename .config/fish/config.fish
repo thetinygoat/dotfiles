@@ -1,6 +1,8 @@
 # homebrew setup
-eval "$(/opt/homebrew/bin/brew shellenv)"
-set -gx HOMEBREW_NO_AUTO_UPDATE 1
+if test -f /opt/homebrew/bin/brew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    set -gx HOMEBREW_NO_AUTO_UPDATE 1
+end
 
 # global setup
 set -gx EDITOR nano
@@ -9,10 +11,25 @@ set -gx SAVEHIST 10000
 set -g fish_greeting
 
 # QOL abbreviations
-abbr --add cat bat
-abbr --add codex codex --search
-abbr --add grep rg
-abbr --add find fd
+if type -q bat
+    abbr --add cat bat
+end
+
+if type -q batcat
+    abbr --add cat batcat
+end
+
+if type -q codex
+    abbr --add codex codex --search
+end
+
+if type -q rg
+    abbr --add grep rg
+end
+
+if type -q fd
+    abbr --add find fd
+end
 
 # git abbreviations
 abbr --add gst git status
@@ -43,7 +60,9 @@ set -gx BUN_INSTALL ~/.bun
 fish_add_path $BUN_INSTALL/bin
 
 # fzf setup
-fzf --fish | source
+if type -q fzf
+    fzf --fish | source
+end
 
 # rust and cargo setup
 fish_add_path $HOME/.cargo/bin
@@ -52,4 +71,6 @@ fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/scripts
 
 # fnm setup
-fnm env --use-on-cd --shell fish | source
+if type -q fnm
+    fnm env --use-on-cd --shell fish | source
+end
