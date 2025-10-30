@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+if [[ -f "${HOME}/.restic.env" ]]; then
+    set -a
+    source $HOME/.restic.env
+    set +a
+fi
+
 BACKUP_SOURCE="/mnt/external"
 KEEP_DAYS=7
 
