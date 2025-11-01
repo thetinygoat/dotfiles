@@ -20,10 +20,6 @@ if type -q batcat
     abbr --add cat batcat
 end
 
-if type -q codex
-    abbr --add codex codex --search
-end
-
 if type -q rg
     abbr --add grep rg
 end
