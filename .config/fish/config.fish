@@ -78,4 +78,4 @@ if test -f $HOME/.config/fish/secrets.fish
 end
 
 # go
-set -gx GOBIN $HOME/.local/bin
+fish_add_path /usr/local/go/bin
