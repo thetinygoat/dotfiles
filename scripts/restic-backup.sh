@@ -2,9 +2,12 @@
 
 set -euo pipefail
 
-if [[ -f "${HOME}/.restic.env" ]]; then
+ENV_FILE="${RESTIC_ENV_FILE:-$HOME/.restic.env}"
+
+
+if [[ -f "${ENV_FILE}" ]]; then
     set -a
-    source $HOME/.restic.env
+    source "${ENV_FILE}"
     set +a
 fi
 
@@ -31,8 +34,16 @@ panic() {
 
 command -v restic > /dev/null 2>&1 || panic "restic is not installed"
 
-if [[ -z "${AWS_ACCESS_KEY_ID:-}" || -z "${AWS_SECRET_ACCESS_KEY:-}" || -z "${RESTIC_REPOSITORY:-}" || -z "${RESTIC_PASSWORD:-}" ]]; then
-    panic "restic not configured properly"
+if [[ -z "${RESTIC_REPOSITORY:-}" || -z "${RESTIC_PASSWORD:-}" ]]; then
+    panic "RESTIC_REPOSITORY or RESTIC_PASSWORD not set"
+fi
+
+
+# only require AWS credentials if using an S3-like backend
+if [[ "${RESTIC_REPOSITORY}" == s3:* ]]; then
+    if [[ -z "${AWS_ACCESS_KEY_ID:-}" || -z "${AWS_SECRET_ACCESS_KEY:-}" ]]; then
+        panic "AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY not set for S3 backend"
+    fi
 fi
 
 [[ ${#BACKUP_SOURCES[@]} -gt 0 ]] || panic "no backup sources configured"
