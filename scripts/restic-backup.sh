@@ -8,7 +8,11 @@ if [[ -f "${HOME}/.restic.env" ]]; then
     set +a
 fi
 
-BACKUP_SOURCE="/mnt/external"
+BACKUP_SOURCES=(
+    "/home"
+    "/etc"
+)
+
 KEEP_DAYS=7
 
 log() {
@@ -31,10 +35,14 @@ if [[ -z "${AWS_ACCESS_KEY_ID:-}" || -z "${AWS_SECRET_ACCESS_KEY:-}" || -z "${RE
     panic "restic not configured properly"
 fi
 
-[[ -d "${BACKUP_SOURCE}" ]] || panic "backup source not found"
+[[ ${#BACKUP_SOURCES[@]} -gt 0 ]] || panic "no backup sources configured"
+
+for source in "${BACKUP_SOURCES[@]}"; do
+    [[ -d "${source}" ]] || panic "backup source not found: ${source}"
+done
 
 info "starting backup"
-restic backup -v "${BACKUP_SOURCE}"
+restic backup -v "${BACKUP_SOURCES[@]}"
 
 
 info "finished backup; enforcing retention policy (keep last ${KEEP_DAYS} daily snapshots)"
