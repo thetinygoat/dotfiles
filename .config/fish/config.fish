@@ -78,9 +78,10 @@ if test -f $HOME/.config/fish/secrets.fish
 end
 
 # go
-set -gx GOBIN $HOME/.local/bin
+fish_add_path /usr/local/go/bin
 
 # 1password agent setup
 if test -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
     set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 end
+
