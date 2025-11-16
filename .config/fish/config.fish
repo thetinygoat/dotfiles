@@ -33,7 +33,7 @@ abbr --add gst git status
 abbr --add gr git remote -v
 abbr --add gra git remote add
 abbr --add grrm git remote remove
-abbr --add gpl git pull --ff-only
+abbr --add gpl git pull
 abbr --add gp git push
 abbr --add glg git log --oneline
 abbr --add gf git fetch
@@ -79,9 +79,3 @@ end
 
 # go
 fish_add_path /usr/local/go/bin
-
-# 1password agent setup
-if test -S "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-    set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-end
-
