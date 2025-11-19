@@ -19,7 +19,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # path mutations (always prepend)
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:$HOME/scripts:/usr/local/go/bin:$PATH"
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$HOME/.local/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin:$HOME/scripts:/usr/local/go/bin:$PATH"
+
 
 # aliases
 if command -v bat > /dev/null 2>&1; then
