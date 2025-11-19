@@ -47,6 +47,9 @@ alias l='ls -l'
 alias la='ls -la'
 alias ll='ls -lh'
 
+alias ..='cd ..'
+alias ...='cd ../..'
+
 alias gst="git status"
 alias gr="git remote -v"
 alias gra="git remote add"
