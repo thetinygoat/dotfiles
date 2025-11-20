@@ -15,7 +15,7 @@ setopt append_history inc_append_history share_history hist_ignore_dups hist_ign
 # case insensitive completions
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
+zstyle ':completion:*' menu select=2
 
 # path mutations (always prepend)
 export BUN_INSTALL="$HOME/.bun"
