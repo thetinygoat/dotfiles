@@ -12,8 +12,17 @@ export SAVEHIST=10000
 # zsh history quality of life
 setopt append_history inc_append_history share_history hist_ignore_dups hist_ignore_space
 
+# load compinit function definition
+autoload -Uz compinit
+
+# completion init
+if [[ -f $HOME/.zcompdump ]]; then
+  compinit -u -C
+else
+  compinit -u
+fi
+
 # case insensitive completions
-autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select=2
 
@@ -47,30 +56,10 @@ else
 fi
 alias l='ls -l'
 alias la='ls -la'
-alias ll='ls -lh'
+alias lh='ls -lh'
 
 alias ..='cd ..'
 alias ...='cd ../..'
-
-alias gst="git status"
-alias gr="git remote -v"
-alias gra="git remote add"
-alias grrm="git remote remove"
-alias gpl="git pull"
-alias gp="git push"
-alias glg="git log --oneline"
-alias gf="git fetch"
-alias gco="git checkout"
-alias gcl="git clone"
-alias gcb="git checkout -b"
-alias gc="git commit -v"
-alias gaa="git add ."
-alias ga="git add"
-alias gca="git commit --amend"
-alias gcane="git commit --amend --no-edit"
-alias gsh="git stash"
-alias gshp="git stash pop"
-alias gb="git branch"
 
 # fzf setup
 if command -v fzf > /dev/null 2>&1; then
@@ -106,10 +95,21 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # plugins
+zinit ice lucid
 zinit light zsh-users/zsh-completions
+
+zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting
+
+zinit ice wait lucid
 zinit snippet OMZ::/plugins/git/git.plugin.zsh
+
 PURE_GIT_PULL=0
+PURE_GIT_DELAY_DIRTY_CHECK=999999
+PURE_GIT_OPTION_FETCH=0
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
+
+
+zinit ice wait'1' lucid
+zinit light zsh-users/zsh-syntax-highlighting
