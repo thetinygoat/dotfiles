@@ -28,6 +28,10 @@ if type -q fd
     abbr --add find fd
 end
 
+if type -q zed
+   abbr --add code zed
+end
+
 # git abbreviations
 abbr --add gst git status
 abbr --add gr git remote -v
