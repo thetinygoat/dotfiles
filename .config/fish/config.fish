@@ -79,6 +79,7 @@ end
 
 # go
 fish_add_path /usr/local/go/bin
+set -gx GOBIN $HOME/.local/bin
 
 # zoxide
 if type -q zoxide
