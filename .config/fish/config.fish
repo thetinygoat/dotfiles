@@ -86,3 +86,10 @@ if type -q zoxide
     zoxide init fish | source
     abbr --add cd z
 end
+
+# sublime text setup
+set -l SUBLIME_TEXT_BIN "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+if test -d $SUBLIME_TEXT_BIN
+	fish_add_path $SUBLIME_TEXT_BIN
+end
+	

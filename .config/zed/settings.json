@@ -7,19 +7,26 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "session": {
+    "trust_all_worktrees": true,
+  },
+  "base_keymap": "VSCode",
   "show_edit_predictions": false,
   "disable_ai": true,
   "minimap": {
-    "show": "always"
+    "show": "always",
   },
   "buffer_font_family": "JetBrains Mono",
   "ui_font_size": 15.0,
   "buffer_font_size": 13.0,
-  "theme": "Catppuccin Frappé",
+  "theme": "Ayu Dark",
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "notification_panel": {
-    "button": false
-  }
+    "button": false,
+  },
+  "title_bar": {
+    "show_sign_in": false,
+  },
 }
