@@ -48,6 +48,9 @@ abbr --add gcane git commit --amend --no-edit
 abbr --add gsh git stash
 abbr --add gshp git stash pop
 abbr --add gb git branch
+abbr --add gwa git worktree add
+abbr --add gwl git worktree list
+abbr --add gwp git worktree prune
 
 # fish abbreviations
 abbr --add reload source ~/.config/fish/config.fish
@@ -92,4 +95,3 @@ set -l SUBLIME_TEXT_BIN "/Applications/Sublime Text.app/Contents/SharedSupport/b
 if test -d $SUBLIME_TEXT_BIN
 	fish_add_path $SUBLIME_TEXT_BIN
 end
-	
