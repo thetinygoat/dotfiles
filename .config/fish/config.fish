@@ -51,6 +51,8 @@ abbr --add gb git branch
 abbr --add gwa git worktree add
 abbr --add gwl git worktree list
 abbr --add gwp git worktree prune
+abbr --add gs git switch
+abbr --add gd git diff
 
 # fish abbreviations
 abbr --add reload source ~/.config/fish/config.fish
